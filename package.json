@@ -1,0 +1,26 @@
+{
+  "name": "dating-app",
+  "version": "1.0.0",
+  "description": "Dating app",
+  "main": "index.js",
+  "scripts": {
+    "test": "Working"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikehov/Dating-app-v2.git"
+  },
+  "keywords": [
+    "dating"
+  ],
+  "author": "Mike Hovenier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikehov/Dating-app-v2/issues"
+  },
+  "homepage": "https://github.com/mikehov/Dating-app-v2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3"
+  }
+}
