@@ -107,10 +107,11 @@ nav#bottombar ul {
 }
 
 nav#bottombar li {
-    display: inline-block;
     height: 100%;
-
     -webkit-filter: drop-shadow( 3px 3px 20px rgba(0, 0, 0, 1));
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 nav#bottombar span {
@@ -200,12 +201,16 @@ section.fullphoto-person .person-match  {
 }
 
 .close-match {
-    background-color: red;
     width: 20px;
     height: 20px;
     top: 1.2em;
     left: 1.2em;
     position: absolute;
+}
+
+.close-match .icon-cross {
+    width: 20px;
+    height: auto;
 }
 
 .top-gradient {
@@ -227,10 +232,10 @@ section.fullphoto-person .person-match  {
 }
 
 .first-text {
-    width: calc(100% - 40px);   
+    width: calc(100% - 60px);   
     position: absolute;
     bottom: 0px;
-    margin: 20px;
+    margin: 30px;
     display: block;
 }
 
@@ -242,6 +247,8 @@ section.fullphoto-person .person-match  {
 
 .first-text label {
     color: var(--textcolor-white);
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 /*-------------- Notification --------------*/
@@ -262,3 +269,23 @@ article.notification p {
     box-sizing: border-box;
 }
 
+/*-------------- Icons --------------*/
+
+i.icon-star, i.icon-cross, i.icon-hearth {
+    position: absolute;
+}
+
+.icon-cross, .icon-star, .icon-hearth {
+    width: 30px;
+    height: auto;
+    display: inline-block;
+    fill: var(--textcolor-white);
+}
+
+#bottombar i.icon-star {
+    bottom: 5px;
+}
+
+#bottombar i.icon-cross, #bottombar i.icon-hearth {
+    bottom: 15px;
+}
