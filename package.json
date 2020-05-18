@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mikehov/Dating-app-v2#readme",
   "dependencies": {
+    "ejs": "^3.1.2",
     "express": "^4.17.1",
     "nodemon": "^2.0.3"
   }
