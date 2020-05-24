@@ -1,16 +1,16 @@
 const express = require("express");
 
 const app = express();
-const port = 3000;
+const port = 5000;
 
 const data = [
   {
     id: "the lost cavia",
     title: "The Lost Cavia",
     plot:
-      "Stuck in a icecube for 182 days but managed to get out by a thunderstorm.",
+      "Stuck in a ice cube for 182 days but managed to get out by a thunderstorm.",
     description:
-      "Stuck in a icecube for 182 days but managed to get out by a thunderstorm.",
+      "Stuck in a ice cube for 182 days but managed to get out by a thunderstorm.",
   },
   {
     id: "barbeque goes wrong III",
@@ -21,10 +21,10 @@ const data = [
       "Sam came back from the grave to get his revenge and destroy them all at the local park.",
   },
   {
-    id: "milkman wasnt a man",
-    title: "Milkman wasnt a man",
-    plot: "A guy that really likes to drink milk, he drinks alot, alot.",
-    description: "A guy that really likes to drink milk, he drinks alot, alot.",
+    id: "milkman wasn't a man",
+    title: "Milkman wasn't a man",
+    plot: "A guy that really likes to drink milk, he drinks a lot, a lot.",
+    description: "A guy that really likes to drink milk, he drinks a lot, a lot.",
   },
 ];
 
@@ -41,23 +41,45 @@ app.get("/match", (req, res) => {
 app.get("/new", (req, res) => {
   res.render("new.ejs", { data });
 });
+app.get("/add", (req, res) => {
+  res.render("add.ejs", { data });
+});
+app.get("/head", (req, res) => {
+  res.render("head.ejs", { data });
+});
+app.get("/detail", (req, res) => {
+  res.render("detail.ejs", { data });
+});
+app.get("/list", (req, res) => {
+  res.render("list.ejs", { data });
+});
+
+
+// .use('/', movies)
+// .get('/add', form)
+// .get('/:id', movie)
+
+// function form(req, res) {
+//   res.render('add.ejs')
+// }
 
 // eslint-disable-next-line no-undef
-app.get("/", index);
+// app.get("/", index);
 // eslint-disable-next-line no-use-before-define
-app.get("/profile/:name", files);
+// app.get("/profile/:name", files);
 
-function files(req, res) {
-  if (req.params === "mp3") {
-    res.send("Send mp3 file!");
-  } else if (req.params === "image") {
-    res.send("Send image file!");
-  } else if (req.params === "pdf") {
-    res.send("Send pdf file!");
-  } else {
-    res.send("Nothing");
-  }
-}
+// NOT NEEDED AT THE MOMENT
+// function files(req, res) {
+//   if (req.params === "mp3") {
+//     res.send("Send mp3 file!");
+//   } else if (req.params === "image") {
+//     res.send("Send image file!");
+//   } else if (req.params === "pdf") {
+//     res.send("Send pdf file!");
+//   } else {
+//     res.send("Nothing");
+//   }
+// }
 
 // function files(req, res) {
 //     console.log('Hey');
