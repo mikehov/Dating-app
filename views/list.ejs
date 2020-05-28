@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="author" content="Mike Hovenier">
+    <meta name="keywords" content="Dating-app">
+    <meta name="description" content="Dating-app for idk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat+Alternates:ital,wght@0,500;1,500&family=Nunito+Sans:ital@0;1&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    
+    <h1>movies</h1>
+    <% for (let index = 0; index < data.length; index++) { %>
+    <h2><a href="/<%= data[index].id %>"><%= data[index].fullname %></a></h2>
+    <p><%console.log(data[index].id)%></p>
+    <p><%= data[index].age %></p>
+    <i><%= data[index].description %></i>
+    <p><%= data[index].liking %></p>
+    <% } %>
+    <p>
+        <a href=/add>Add user</a>
+    </p>
+
+</body>
+</html>

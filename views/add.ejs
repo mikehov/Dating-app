@@ -1,17 +1,37 @@
-<title>Add a movie - My movie website</title>
-<h1>Add a new movie</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="author" content="Mike Hovenier">
+    <meta name="keywords" content="Dating-app">
+    <meta name="description" content="Dating-app for idk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat+Alternates:ital,wght@0,500;1,500&family=Nunito+Sans:ital@0;1&display=swap"
+        rel="stylesheet">
+</head>
+<h1>Add a new user</h1>
 <form action=/ method=post>
-    <label>Title <input name=title></label>
+    <label>Fullname<input name=fullname></label>
     <label>
-        Plot (short)
-        <input name=plot>
+        Age
+        <input name=age type=number>
     </label>
     <label>
-        Description (long)
-        <textarea
-            name= description
-            rows=5
-        ></textarea>
+        Description
+        <textarea name=description rows=5></textarea>
     </label>
-    <button>Add</button>
+    <label>
+        Liked or not
+        <input type=radio name=liking value=dislike>
+        <label for=like>Dislike</label>
+        <input type=radio name=liking value=superlike>
+        <label for=like>Super like</label>
+        <input type=radio name=liking value=like>
+        <label for=like>Like</label>
+    </label>
+    <button>Add user</button>
 </form>

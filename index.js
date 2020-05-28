@@ -1,33 +1,55 @@
 const express = require("express");
+const slug = require('slug');
+const bodyParser = require("body-parser")
 
 const app = express();
 const port = 5000;
 
 const data = [
+  // {
+  //   id: "the lost cavia",
+  //   title: "The Lost Cavia",
+  //   plot:
+  //     "Stuck in a ice cube for 182 days but managed to get out by a thunderstorm.",
+  //   description:
+  //     "Stuck in a ice cube for 182 days but managed to get out by a thunderstorm.",
+  // },
+  // {
+  //   id: "barbeque goes wrong III",
+  //   title: "Barbeque goes wrong III",
+  //   plot:
+  //     "Sam came back from the grave to get his revenge and destroy them all at the local park.",
+  //   description:
+  //     "Sam came back from the grave to get his revenge and destroy them all at the local park.",
+  // },
+  // {
+  //   id: "milkman wasn't a man",
+  //   title: "Milkman wasn't a man",
+  //   plot: "A guy that really likes to drink milk, he drinks a lot, a lot.",
+  //   description: "A guy that really likes to drink milk, he drinks a lot, a lot.",
+  // },
   {
-    id: "the lost cavia",
-    title: "The Lost Cavia",
-    plot:
-      "Stuck in a ice cube for 182 days but managed to get out by a thunderstorm.",
-    description:
-      "Stuck in a ice cube for 182 days but managed to get out by a thunderstorm.",
+    id: "thomas moffle",
+    fullname: "Thomas Moffle",
+    age: "23",
+    description: "A guy that reall really likes goats.",
   },
   {
-    id: "barbeque goes wrong III",
-    title: "Barbeque goes wrong III",
-    plot:
-      "Sam came back from the grave to get his revenge and destroy them all at the local park.",
-    description:
-      "Sam came back from the grave to get his revenge and destroy them all at the local park.",
+    id: "carl batman",
+    fullname: "Carl Batman",
+    age: "27",
+    description: "Not from the movies, cause I'm real.",
   },
   {
-    id: "milkman wasn't a man",
-    title: "Milkman wasn't a man",
-    plot: "A guy that really likes to drink milk, he drinks a lot, a lot.",
-    description: "A guy that really likes to drink milk, he drinks a lot, a lot.",
+    id: "melanie brinkstops",
+    fullname: "Melanie Brinkstops",
+    age: "24",
+    description: "You can know me from Sluipschutters, but I'm just a copy.",
   },
 ];
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.post('/', add);
 app.use(express.static(`${__dirname}/views`));
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -38,8 +60,8 @@ app.get("/index", (req, res) => {
 app.get("/match", (req, res) => {
   res.render("match.ejs");
 });
-app.get("/new", (req, res) => {
-  res.render("new.ejs", { data });
+app.get("/list", (req, res) => {
+  res.render("list.ejs", { data });
 });
 app.get("/add", (req, res) => {
   res.render("add.ejs", { data });
@@ -54,6 +76,17 @@ app.get("/list", (req, res) => {
   res.render("list.ejs", { data });
 });
 
+
+// eslint-disable-next-line require-jsdoc
+function add(req, res) {
+  data.push({
+    fullname: req.body.fullname,
+    age: req.body.age,
+    description: req.body.description,
+  });
+
+  res.redirect('/list');
+}
 
 // .use('/', movies)
 // .get('/add', form)
