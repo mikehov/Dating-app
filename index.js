@@ -1,79 +1,79 @@
-const express = require("express");
+const express = require('express');
 const slug = require('slug');
-const bodyParser = require("body-parser")
+const bodyParser = require('body-parser');
+const mongodb = require('mongodb');
+// Reads dotenv file
+require('dotenv').config();
+
+// Connect to the MongoDB Atlas 
+let db = null;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}`;
+
+mongodb.MongoClient.connect(uri, {
+    useUnifiedTopology: true,
+  },
+  (err, client) => {
+    if (err) throw err;
+    db = client.db(process.env.DB_NAME);
+    console.log('Connected to database')
+  });
 
 const app = express();
 const port = 5000;
 
-const data = [
-  // {
-  //   id: "the lost cavia",
-  //   title: "The Lost Cavia",
-  //   plot:
-  //     "Stuck in a ice cube for 182 days but managed to get out by a thunderstorm.",
-  //   description:
-  //     "Stuck in a ice cube for 182 days but managed to get out by a thunderstorm.",
-  // },
-  // {
-  //   id: "barbeque goes wrong III",
-  //   title: "Barbeque goes wrong III",
-  //   plot:
-  //     "Sam came back from the grave to get his revenge and destroy them all at the local park.",
-  //   description:
-  //     "Sam came back from the grave to get his revenge and destroy them all at the local park.",
-  // },
-  // {
-  //   id: "milkman wasn't a man",
-  //   title: "Milkman wasn't a man",
-  //   plot: "A guy that really likes to drink milk, he drinks a lot, a lot.",
-  //   description: "A guy that really likes to drink milk, he drinks a lot, a lot.",
-  // },
-  {
-    id: "thomas moffle",
-    fullname: "Thomas Moffle",
-    age: "23",
-    description: "A guy that reall really likes goats.",
-  },
-  {
-    id: "carl batman",
-    fullname: "Carl Batman",
-    age: "27",
-    description: "Not from the movies, cause I'm real.",
-  },
-  {
-    id: "melanie brinkstops",
-    fullname: "Melanie Brinkstops",
-    age: "24",
-    description: "You can know me from Sluipschutters, but I'm just a copy.",
-  },
-];
 
-app.use(bodyParser.urlencoded({extended: true}));
+// folder page
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.post('/', add);
 app.use(express.static(`${__dirname}/views`));
 app.set("view engine", "ejs");
 app.set("views", "views");
 
+// links to the .ejs files
 app.get("/index", (req, res) => {
-  res.render("index.ejs");
+  db.collection('Users')
+    .find()
+    .toArray((err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+        res.render('swipe.ejs', {
+          data: data,
+        });
+      }
+    });
 });
+
+app.get('/list', (req, res) => {
+  db.collection('Users')
+    .find()
+    .toArray((err, data) => {
+      if (err) console.log(err);
+      console.log(data);
+      res.render('list.ejs', {
+        data: data
+      });
+    });
+});
+app.get("/add", (req, res) => {
+  res.render("add.ejs", {
+    data
+  });
+});
+
 app.get("/match", (req, res) => {
   res.render("match.ejs");
 });
-app.get("/list", (req, res) => {
-  res.render("list.ejs", { data });
-});
-app.get("/add", (req, res) => {
-  res.render("add.ejs", { data });
-});
-app.get("/head", (req, res) => {
-  res.render("head.ejs", { data });
-});
-app.get("/detail", (req, res) => {
-  res.render("detail.ejs", { data });
-});
-app.get("/list", (req, res) => {
-  res.render("list.ejs", { data });
+app.post("/test", (req, res) => {
+  db.collection('Users').insertOne({
+    'username': req.body.username,
+    'gender': req.body.gender,
+    'age': req.body.age,
+  });
+  res.redirect("/list");
 });
 
 

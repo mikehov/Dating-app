@@ -14,24 +14,17 @@
         rel="stylesheet">
 </head>
 <h1>Add a new user</h1>
-<form action=/ method=post>
-    <label>Fullname<input name=fullname></label>
-    <label>
-        Age
-        <input name=age type=number>
-    </label>
-    <label>
-        Description
-        <textarea name=description rows=5></textarea>
-    </label>
-    <label>
-        Liked or not
-        <input type=radio name=liking value=dislike>
-        <label for=like>Dislike</label>
-        <input type=radio name=liking value=superlike>
-        <label for=like>Super like</label>
-        <input type=radio name=liking value=like>
-        <label for=like>Like</label>
-    </label>
-    <button>Add user</button>
+
+<form action="/test" method="post">
+   <label>Username</label>
+   <input type="email" name="username" placeholder="Email" value="username">
+
+    <label for="male">Male</label>
+    <input type="radio" name="gender" value="male">
+    <label for="female">Female</label>
+    <input type="radio" name="gender" value="female">
+    <label>Age</label>
+    <input type="number" name="age" value="age">
+    <button type="submit">Add user</button>
+
 </form>

@@ -12,6 +12,6 @@ This dating-app is about the feature "swiping" and "notifications". Its a casual
 4. To run the project, type: `nodemon index.js` or `npx nodemon index.js`.
 
 ## Documentation
-To find the documentation, check out my wiki page of repository. 
+To find the documentation, check out my wiki page of my repository. 
 https://github.com/mikehov/Dating-app/wiki
 
