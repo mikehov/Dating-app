@@ -15,6 +15,21 @@ This dating-app is about the feature "swiping" and "notifications". Its a casual
 To find the documentation, check out my wiki page of my repository. 
 https://github.com/mikehov/Dating-app/wiki
 
+## Data structure
+| **Data**           | **Value**                      | **Type**         |
+| -------------------|:------------------------------:|:----------------:|
+| _id                | randomIdCode                   | objectID         |
+| firstname          | Melanie                        | String           |
+| lastname           | Brinkhaltes                    | String           | 
+| email              | melaniebrinkhaltes@outlook.com | String           | 
+| gender             | female                         | String           | 
+| age                | 22                             | Int32            | 
+| city               | Zaandam                        | String           | 
+| characteristics    | 0:excited, 1:happy, 2:godess   | Array            | 
+| picture            | photo-melanie.png              | String           | 
+| likes              | userid1:1, userid2:0,          | Object           | 
+
+
 ## Sources
 AWS Simplified. (2020, February 10). SQL vs NoSQL Explained [Video file]. YouTube. Retrieved from https://www.youtube.com/watch?v=ruz-vK8IesE&t=310s
 
