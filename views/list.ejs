@@ -16,21 +16,22 @@
 
 <body>
     <h1 class="users-header">Dating-app Users:</h1>
-    <!-- The for loop loops through all the users in the database. -->
+    <a href="/add" class="list-btn link-white">Add user</a>
+    <a href="/index" class="list-btn link-white">Swipe some people</a>
+
     <section class="users-list">
         <% for (let index = 0; index < data.length; index++) {%>
-        <i>Id: <a href="/<%= data[index].id %>"><%= data[index]._id%></a></i>
+        <p>Id: <%= data[index]._id%></p>
         <p>Firstname: <%= data[index].firstname %></p>
         <p>Lastname: <%= data[index].lastname %></p>
-        <p>Username: <%= data[index].username %></p>
+        <p>Username: <%= data[index].email %></p>
         <p>Gender: <%= data[index].gender %></p>
         <p>Looking for: <%= data[index].lookingfor %></p>
         <p>Age: <%= data[index].age %></p>
         <p>City: <%= data[index].city %></p>
+        <p>Characteristics: <%= data[index].characteristics %></p>
         <br>
         <% } %>
-        <a href="/add" class="list-btn link-white">Add user</a>
-        <a href="/swipe" class="list-btn link-white">Swipe some people</a>
     </section>
 </body>
 

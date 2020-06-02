@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Swipe Page | Dating-app</title>
+    <title>Swipe page</title>
     <link rel="stylesheet" href="css/style.css">
     <meta name="author" content="Mike Hovenier">
     <meta name="keywords" content="Dating-app">
@@ -17,18 +17,17 @@
 <body>
 
     <%- include('components/header'); -%>
-
-    <main>
+    <!-- still need to include sessions -->
         <section class="fullphoto-person">
-            <article class="person-information">
-                <h2><%= data[0].firstname %>, <%= data[0].age %></h2>
-                <p><%= data[0].city %></p>
+            <article class="person-information">             
+                <h2>Melanie, 22</h2>
+                <p>Zaandam</p>
                 <p>"?km" Away from you</p>
                 <p class="icons"></p>
                 <div>
-                    <p><%= data[0].characteristics[0] %></p>
-                    <p><%= data[0].characteristics[1] %></p>
-                    <p><%= data[0].characteristics[2] %></p>
+                    <p>Sukkel</p>
+                    <p>Kneus</p>
+                    <p>Homo</p>
                 </div>
             </article>
         </section>
@@ -37,7 +36,7 @@
     <footer>
         <section class="bottom-gradient"></section>
         <nav id="bottombar">
-            <form action="/test" method="POST" id="swipeform">
+            <form action="/matches" method="POST" id="swipeform">
                 <ul>
                     <li>
                         <button type="submit" class="liking-btn" name="liking-btn" value="Dislike">

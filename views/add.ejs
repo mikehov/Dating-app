@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Add user</title>
+    <title>Add user page</title>
     <link rel="stylesheet" href="css/style.css">
     <meta name="author" content="Mike Hovenier">
     <meta name="keywords" content="Dating-app">
@@ -13,18 +13,47 @@
         href="https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat+Alternates:ital,wght@0,500;1,500&family=Nunito+Sans:ital@0;1&display=swap"
         rel="stylesheet">
 </head>
-<h1>Add a new user</h1>
+<section class="add-page">
+    <h1>Add a new user</h1>
 
-<form action="/test" method="post">
-   <label>Username</label>
-   <input type="email" name="username" placeholder="Email" value="username">
+    <form action="/user" method="post" class="add-form">
+        <fieldset>
+            <label>Firstname:</label>
+            <input type="text" name="firstname" required>
+            <label>Lastname:</label>
+            <input type="text" name="lastname" required>
+            <label>Email:</label>
+            <input type="email" name="email" required placeholder="example@outlook.com">
+        </fieldset>
 
-    <label for="male">Male</label>
-    <input type="radio" name="gender" value="male">
-    <label for="female">Female</label>
-    <input type="radio" name="gender" value="female">
-    <label>Age</label>
-    <input type="number" name="age" value="age">
-    <button type="submit">Add user</button>
+        <fieldset>
+            <p>What is your gender?</p>
+            <label for="male">Male:</label>
+            <input type="radio" name="gender" value="male">
+            <label for="female">Female:</label>
+            <input type="radio" name="gender" value="female">
 
-</form>
+            <label>Age:</label>
+            <input type="number" name="age" maxlength="2" value="age">
+
+            <p>Where are you looking for?</p>
+
+            <label for="male">Male:</label>
+            <input type="radio" name="lookingfor" value="male">
+            <label for="female">Female:</label>
+            <input type="radio" name="lookingfor" value="female">
+
+            <label>City:</label>
+            <input type="text" name="city">
+
+            <label>Characteristics:</label>
+            <input type="text" name="characteristics">
+            <input type="text" name="characteristics">
+            <input type="text" name="characteristics">
+
+        </fieldset>
+        <button type="submit">Add user</button>
+    </form>
+</section>
+
+</html>
