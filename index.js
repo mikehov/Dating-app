@@ -1,8 +1,8 @@
 // All the packages
 const express = require('express');
+const slug = require('slug');
 const bodyParser = require('body-parser');
 const mongodb = require('mongodb');
-// const slug = require('slug');
 require('dotenv').config();
 
 // Connect to the MongoDB Atlas 
@@ -22,10 +22,10 @@ const app = express();
 const port = 5000;
 
 
-// Folder page
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+// Folder page
 app.post('/', add);
 app.use(express.static(`${__dirname}/views`));
 app.set("view engine", "ejs");
@@ -54,37 +54,31 @@ app.get("/match", function (req, res) {
   res.render("match.ejs");
 });
 
-// Links to the database collection
-
-// Logs if someone liked or disliked
-let index = 0;
 // Logs id's
+let index = 0;
 app.post("/matches", function (req, res) {
   db.collection('Users').find() 
     .toArray(function (err, data) {
       if (err) console.log(err);
-      // console.log(data);
       let allIds = [];
       for (let i of data) {
         allIds.push(i._id);
       }
-      console.log(allIds[index]);
+      console.log('The user ID = ' + allIds[index]);
       index++;
-      console.log('Dit is de index' + index)
+      console.log('This is person ' + '"' + index + '"' + ' of the database')
 
       if (index == allIds.length) {
         index = 0;
       }
-
-      console.log(data[index]);
-      console.log(req.body)
+      // console.log(data[index]);
+      // console.log(req.body)
 
       // Random distance counter
       let randomDistance = Math.floor(Math.random() * 100);
-      // console.log(typeof data);
       data[index].randomDistance = randomDistance;
-      // console.log('The distance is ' + data.randomDistance + ' km');
-      console.log(data);
+      console.log('The distance is ' + data[index].randomDistance + 'km away from you');
+      // console.log(data);
       res.render('swipe.ejs', {
         data: data[index]
       }); 
@@ -104,22 +98,6 @@ app.post("/user", function (req, res) {
   });
   res.redirect("/list");
 });
-
-
-// app.post("/matches", function (req, res) {
-//   db.collection('Users').insertOne({
-//     'firstname': req.body.firstname,
-//     'lastname': req.body.lastname,
-//     'email': req.body.email,
-//     'gender': req.body.gender,
-//     'age': req.body.age,
-//     'lookingfor': req.body.lookingfor,
-//     'city': req.body.city,
-//     'characteristics': req.body.characteristics,
-//   });
-//   console.log(req.body.liking - btn);
-//   res.redirect("/list");
-// });
 
 // Eslint disable next line require jsdoc
 function add(req, res) {

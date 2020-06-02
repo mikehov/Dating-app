@@ -42,18 +42,14 @@ Claire is seasoned technical writer, editor, and HTML enthusiast. She writes for
 de Vries, D. (n.d.-a). lecture-3. Retrieved June 2, 2020, from https://docs.google.com/presentation/d/1PJTtYNOFw8n9Zr54kBiabNpb777QDMNJIFt0bKVR__Q/edit#slide=id.g4e3b0a74b9_1_416
 
 freeCodeCamp.org. (2018, October 25). Let’s Build a Tinder-Like Swipe Carousel [Video file]. In YouTube. Retrieved from https://www.youtube.com/watch?v=Iz6W4HizXq8
-```
-Code
-```
 
 de Vries, D. (n.d.). lecture-4. Retrieved June 2, 2020, from https://docs.google.com/presentation/d/1J0SVcx7rMnFp37JqsQMHQq92EfBRUFdgSAj5i9wQKjg/edit#slide=id.g85a98fc989_0_63
-```
-Code
-```
 
 MongoDB. (n.d.-b). Managed MongoDB Hosting | Database-as-a-Service. Retrieved June 2, 2020, from https://www.mongodb.com/cloud/atlas
 
 MongoDB. (n.d.-b). Connect to MongoDB. Retrieved June 2, 2020, from https://docs.mongodb.com/guides/server/drivers/
+
+npmjs. (2019, April 26). npm: body-parser. Retrieved June 2, 2020, from https://www.npmjs.com/package/body-parser
 
 Sarzyński, Ł. (n.d.). fill HTML forms without JavaScript. Retrieved May 26, 2020, from https://dev.to/lukaszsarzynski/fill-html-forms-without-javascript-4d24
 
