@@ -17,7 +17,7 @@ https://github.com/mikehov/Dating-app/wiki
 
 ## Data structure
 | **Data**           | **Value**                      | **Type**         |
-| -------------------|:------------------------------:|:----------------:|
+|:------------------:|:------------------------------:|:----------------:|
 | _id                | randomIdCode                   | objectID         |
 | firstname          | Melanie                        | String           |
 | lastname           | Brinkhaltes                    | String           | 
