@@ -207,8 +207,11 @@ section.fullphoto-person img {
 
 section.fullphoto-person .person-match {
     text-align: center;
-    position: relative;
+    position: absolute;
     top: 5em;
+    left: 0;
+    right: 0;
+    margin: auto auto;
 }
 
 .person-match h1 {
@@ -226,6 +229,7 @@ section.fullphoto-person .person-match {
 .close-match .icon-cross {
     width: 20px;
     height: auto;
+    fill: var(--textcolor-white);
 }
 
 .top-gradient {

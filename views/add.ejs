@@ -18,20 +18,20 @@
 
     <form action="/user" method="post" class="add-form">
         <fieldset>
-            <label>Firstname:</label>
+            <label>Firstname:*</label>
             <input type="text" name="firstname" required>
-            <label>Lastname:</label>
+            <label>Lastname:*</label>
             <input type="text" name="lastname" required>
-            <label>Email:</label>
+            <label>Email:*</label>
             <input type="email" name="email" required placeholder="example@outlook.com">
         </fieldset>
 
         <fieldset>
             <p>What is your gender?</p>
             <label for="male">Male:</label>
-            <input type="radio" name="gender" value="male">
+            <input type="radio" name="gender" value="male" required>
             <label for="female">Female:</label>
-            <input type="radio" name="gender" value="female">
+            <input type="radio" name="gender" value="female" required>
 
             <label>Age:</label>
             <input type="number" name="age" maxlength="2" value="age">

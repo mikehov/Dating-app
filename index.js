@@ -1,6 +1,6 @@
 // All the packages
 const express = require('express');
-const slug = require('slug');
+// const slug = require('slug');
 const bodyParser = require('body-parser');
 const mongodb = require('mongodb');
 require('dotenv').config();
