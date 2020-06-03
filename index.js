@@ -57,20 +57,24 @@ app.get("/match", function (req, res) {
 // Logs id's
 let index = 0;
 app.post("/matches", function (req, res) {
-  db.collection('Users').find() 
+  db.collection('Users').find()
     .toArray(function (err, data) {
       if (err) console.log(err);
       let allIds = [];
       for (let i of data) {
         allIds.push(i._id);
       }
-      console.log('The user ID = ' + allIds[index]);
+      
+      // werkend maken
+      console.log(req.body);
+      console.log('The users ID of ' + (data[index].firstname) + ' ' + (data[index].lastname) + ' = ' + data[index]._id);
       index++;
-      console.log('This is person ' + '"' + index + '"' + ' of the database')
+      // console.log('This is person ' + '"' + index + '"' + ' of the database')
 
       if (index == allIds.length) {
         index = 0;
       }
+
       // console.log(data[index]);
       // console.log(req.body)
 
@@ -81,7 +85,7 @@ app.post("/matches", function (req, res) {
       // console.log(data);
       res.render('swipe.ejs', {
         data: data[index]
-      }); 
+      });
     });
 });
 
@@ -99,17 +103,21 @@ app.post("/user", function (req, res) {
   res.redirect("/list");
 });
 
-// Eslint disable next line require jsdoc
 function add(req, res) {
   data.push({
-    fullname: req.body.fullname,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    gender: req.body.gender,
     age: req.body.age,
-    description: req.body.description,
+    lookingfor: req.body.lookingfor,
+    city: req.body.city,
+    characteristics: req.body.characteristics,
   });
 
   res.redirect('/list');
 }
 
-app.listen(port, function() {
+app.listen(port, function () {
   console.log(`Example app listening at http://localhost:${port}`)
 });

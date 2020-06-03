@@ -35,6 +35,8 @@ AWS Simplified. (2020, February 10). SQL vs NoSQL Explained [Video file]. YouTub
 
 Bitovi. (n.d.). Tinder Carousel | intermediate recipes | Guides | CanJS — Build CRUD apps in fewer lines of code. Retrieved June 2, 2020, from https://canjs.com/doc/guides/recipes/tinder-carousel.html
 
+Blex, A. (2017, December 4). mongodb append to an existing object [Post]. Retrieved from https://stackoverflow.com/questions/47631912/mongodb-append-to-an-existing-object
+
 Box Shadow CSS Generator | CSSmatic. (n.d.). Retrieved May 10, 2020, from https://www.cssmatic.com/box-shadow 
 
 Claire is seasoned technical writer, editor, and HTML enthusiast. She writes for HTML.com and runs a content agency, Red Robot Media. (n.d.). Attribute for METHOD = GET | POST. Retrieved May 26, 2020, from https://html.com/attributes/form-method/
@@ -48,6 +50,20 @@ de Vries, D. (n.d.). lecture-4. Retrieved June 2, 2020, from https://docs.google
 MongoDB. (n.d.-b). Managed MongoDB Hosting | Database-as-a-Service. Retrieved June 2, 2020, from https://www.mongodb.com/cloud/atlas
 
 MongoDB. (n.d.-b). Connect to MongoDB. Retrieved June 2, 2020, from https://docs.mongodb.com/guides/server/drivers/
+
+MongoDB. (2020, June 3). db.collection.update() — MongoDB Manual [Formpost]. Retrieved from https://docs.mongodb.com/manual/reference/method/db.collection.update/ Code:
+```
+db.products.update(
+   { _id: 100 },
+   { $set:
+      {
+        quantity: 500,
+        details: { model: "14Q3", make: "xyz" },
+        tags: [ "coats", "outerwear", "clothing" ]
+      }
+   }
+)
+```
 
 npmjs. (2019, April 26). npm: body-parser. Retrieved June 2, 2020, from https://www.npmjs.com/package/body-parser
 
