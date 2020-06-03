@@ -20,19 +20,23 @@ _The Dating-app provides some features, here are some insights of those features
 
 **Swiping**:
 You can swipe (tab) on the red, purple or green button to dislike, superlike or like people. All the information you see, sits in the database. You can see what type information in the table of the Data structure underneath. If you dislike, superlike or like people, you are liking someones document, your document will then be adjusted if you disliked, superliked or liked that persons iD. The _swiping feature_ will not show that person again if you disliked the person. 
-![Swipe page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-swipe.png "Swipe page")\
+
+![Swipe page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-swipe.png "Swipe page")
 
 **Add**:
 You can add someone to the database by filling the input fields, not every field is required, except for: firstname, lastname, email and gender. If you added someone, you can see that person in the appearing in the list, also the database receives an new person, information that's not filled in will not be shown int the database.
-![Add user page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-add.png "Add page")\
+
+![Add user page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-add.png "Add page")
 
 **Notification**:
 If you and the other person both liked eachother, you will get a direct notification that you have a match. 
-![Match page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-match.png "Match page")\
+
+![Match page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-match.png "Match page")
 
 **List**:
 There is a list with all the users of the database, you can add users by pressing "Add users" or going to the add page.
-![List page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-list.png "List page")\
+
+![List page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-list.png "List page")
 
 ## Data structure
 | **Data**           | **Value**                      | **Type**         |
