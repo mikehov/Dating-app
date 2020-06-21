@@ -18,8 +18,15 @@ https://github.com/mikehov/Dating-app/wiki
 ## Features
 _The Dating-app provides some features, here are some insights of those features._
 
+**Index/Login (prototype)**:
+On the index page (login page), you can login by typing your email-adress, that exist in database. If you don't have an account yet, you can create one. This is just a prototype of the app to visualize the login.
+
+![Index/login page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-index.png "Index page")
+
 **Swiping**:
-You can swipe (tab) on the red, purple or green button to dislike, superlike or like people. All the information you see, sits in the database. You can see what type information in the table of the Data structure underneath. If you dislike, superlike or like people, you are liking someones document, your document will then be adjusted if you disliked, superliked or liked that persons iD. The _swiping feature_ will not show that person again if you disliked the person. 
+You can tab on the _red_, _purple_ or _green_ button to dislike, superlike or like people. All the information you see, sits in the database. You can see what type of information is getting stored in the table of the-data structure underneath. 
+* Dislike: By disliking a person, you are not interested and go to the next one.
+* Superlike or Liking: By superliking or liking a person, you will have a chance to get a match, if the other person likes you back. You guys will match and you will get a notification the next time you swipe that person. If one out of the two doesn't press the superlike or like button, there won't be a match. 
 
 ![Swipe page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-swipe.png "Swipe page")
 
@@ -29,7 +36,7 @@ You can add someone to the database by filling the input fields, not every field
 ![Add user page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-add.png "Add page")
 
 **Notification**:
-If you and the other person both liked eachother, you will get a direct notification that you have a match. 
+If you and the other person both liked eachother, you will get a direct notification that you have a match the next time you have swiped that person. 
 
 ![Match page](https://raw.githubusercontent.com/wiki/mikehov/Dating-app/images/page-match.png "Match page")
 
@@ -92,41 +99,37 @@ db.products.update(
 
 npmjs. (2019, April 26). npm: body-parser. Retrieved June 2, 2020, from https://www.npmjs.com/package/body-parser
 
+npmjs. (2020, March 15). npm: cookie-parser. Retrieved June 21, 2020, from https://www.npmjs.com/package/cookie-parser
+
 Sarzyński, Ł. (n.d.). fill HTML forms without JavaScript. Retrieved May 26, 2020, from https://dev.to/lukaszsarzynski/fill-html-forms-without-javascript-4d24
+
+Session Authentication in Express. (2018, November 17). [Video file]. Retrieved from https://www.youtube.com/watch?v=OH6Z0dJ_Huk&t=231s
 
 SVG drop shadow using css3. (2011, May 22). Retrieved May 10, 2020, from https://stackoverflow.com/questions/6088409/svg-drop-shadow-using-css3
 
 Ruizendaal, R. (n.d.). RowinRuizendaal/project-tech. Retrieved May 20, 2020, from https://github.com/RowinRuizendaal/project-tech
+
 Code that the student Rowin Ruizendaal helped with:
 ```
-app.post("/matches", function (req, res) {
-  db.collection('Users').find() 
-    .toArray(function (err, data) {
-      if (err) console.log(err);
-      // console.log(data);
-      let allIds = [];
-      for (let i of data) {
-        allIds.push(i._id);
-      }
-      console.log(allIds[index]);
-      index++;
-      console.log('Dit is de index' + index)
-
-      if (index == allIds.length) {
-        index = 0;
-      }
-
-      console.log(data[index]);
-      console.log(req.body)
-
-      // Random distance counter
-      let randomDistance = Math.floor(Math.random() * 100);
-      data[index].randomDistance = randomDistance;
-      console.log(data);
-      res.render('swipe.ejs', {
-        data: data[index]
-      }); 
-    });
+app.post('/login', (req, res) => {
+  const username = req.body.email;
+  console.log(req.body);
+  db.collection('Users').findOne({
+    'email': username,
+  }, (err, result) => {
+    if (err) console.log(err);
+    if (result) {
+      console.log(result);
+      req.session.user = result;
+      req.session.save(function(err) {
+        res.render('swipe', {
+          data: req.session.user,
+        });
+      });
+    } else {
+      res.redirect('/index');
+    }
+  });
 });
 
 function add(req, res) {
@@ -161,3 +164,5 @@ Hiles, S. (2017, December 26). Sonnie Hiles [Photo]. Retrieved from https://unsp
 Jensen, D. (2017, August 15). Daniel Jensen [Photo]. Retrieved from https://unsplash.com/photos/tQpypKA92k8
 
 Kobalasingam, H. (2018, November 8). Harishan Kobalasingam [Photo]. Retrieved from https://unsplash.com/photos/8PMvB4VyVXA
+
+90, A. P. X. (2017, September 28). man standing. Retrieved June 21, 2020, from https://unsplash.com/photos/At__EKm5PGE
