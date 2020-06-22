@@ -8,7 +8,7 @@ const objectId = mongodb.ObjectID;
 require('dotenv').config();
 
 
-// Connect to the MongoDB Atlas Database
+// Connects to the MongoDB Atlas Database
 let db = null;
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}`;
 
@@ -76,7 +76,8 @@ app.get('/match', function(req, res) {
   res.render('match.ejs');
 });
 
-app.post('/login', (req, res) => {
+// Login with your email so you are a user with session.
+app.post('/login', function(req, res) {
   const username = req.body.email;
   db.collection('Users').findOne({
     'email': username,
@@ -97,8 +98,8 @@ app.post('/login', (req, res) => {
 
 
 let index = 0;
-// first time loading the page
-app.get('/swipe', async (req, res) => {
+// loads all users from the database
+app.get('/swipe', async function(req, res) {
   const users = await db
       .collection('Users')
       .find({_id: {$ne: objectId(req.session.user._id)}})
@@ -111,8 +112,8 @@ app.get('/swipe', async (req, res) => {
   res.render('./swipe.ejs', {data: users[index]});
 });
 
-// keeps track off every swipe and goes to the next
-app.post('/swipe', async (req, res) => {
+// keeps track off every swipe and goes to the next one
+app.post('/swipe', async function(req, res) {
   const users = await db
       .collection('Users')
       .find({_id: {$ne: objectId(req.session.user._id)}})
@@ -130,9 +131,11 @@ app.post('/swipe', async (req, res) => {
     }, (err, result) => {
       if (err) console.log(err);
       if (result) {
-        console.log('You liked the person ' + `${users[index-1].firstname}` + ' ' + `${users[index-1].lastname}`);
+        // console.log('You liked the person ' + `${users[index-1].firstname}` + ' ' + `${users[index-1].lastname}`);
       }
     });
+
+    // checks like in the database
     const checkLike = await db
         .collection('Users')
         // eslint-disable-next-line max-len
@@ -161,7 +164,6 @@ app.post('/swipe', async (req, res) => {
 
   // checks if you reaced the end of all the users
   if (index == users.length) {
-    // console.log('There are no new matches coming, you have reached the end');
     index = 0;
     res.render('./swipe.ejs', {data: users[index]});
     return;
