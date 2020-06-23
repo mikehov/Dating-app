@@ -47,13 +47,13 @@ app.use(express.static(`${__dirname}/views`));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-
 // Links to the .ejs files
 // Homescreen
 app.get('/index', function(req, res) {
   console.log('This is the index page, let\'s start swiping!');
   res.render('index.ejs');
 });
+
 // List with all users from the database
 app.get('/list', function(req, res) {
   db.collection('Users')
@@ -66,6 +66,7 @@ app.get('/list', function(req, res) {
         });
       });
 });
+
 // Add a user page to the database
 app.get('/add', function(req, res) {
   res.render('add.ejs');

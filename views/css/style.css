@@ -98,6 +98,11 @@ nav#topbar li {
     padding: 10px;
 }
 
+nav#topbar a {
+    color: var(--textcolor-white);
+    text-decoration: none;
+}
+
 nav#bottombar {
     width: 100vw;
     height: 5em;
