@@ -110,6 +110,10 @@ nav#bottombar {
     bottom: 0;
 }
 
+nav#bottombar button {
+    font-size: 0px;
+}
+
 nav#bottombar ul {
     bottom: 0;
 }
