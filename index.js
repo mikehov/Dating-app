@@ -60,11 +60,13 @@ app.get('/list', function(req, res) {
       .find()
       .toArray(function(err, data) {
         if (err) console.log(err);
-        console.log(data);
         res.render('list.ejs', {
           data: data,
         });
       });
+  
+  console.log('Test');
+  console.log(req.body.characteristics);
 });
 
 // Add a user page to the database
@@ -120,6 +122,15 @@ app.post('/swipe', async function(req, res) {
       .find({_id: {$ne: objectId(req.session.user._id)}})
       .toArray();
   index++;
+
+  // randomCounter for the km
+  function randomCounter() {
+    const randomDistance = Math.floor(Math.random() * 100);
+    return randomDistance;
+  };
+  
+  console.log(randomCounter());
+  document.querySelector('.person-information p:nth-child(3)').innerHTML = randomCounter() + 'km away from you';
 
   // if you superliked(1) or liked(2) that person, it will be saved
   if (req.body.liking == 1 || req.body.liking == 2) {

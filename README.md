@@ -73,9 +73,19 @@ Claire is seasoned technical writer, editor, and HTML enthusiast. She writes for
 
 de Vries, D. (n.d.-a). lecture-3. Retrieved June 2, 2020, from https://docs.google.com/presentation/d/1PJTtYNOFw8n9Zr54kBiabNpb777QDMNJIFt0bKVR__Q/edit#slide=id.g4e3b0a74b9_1_416
 
+de Vries, D. (n.d.). lecture-4. Retrieved June 2, 2020, from https://docs.google.com/presentation/d/1J0SVcx7rMnFp37JqsQMHQq92EfBRUFdgSAj5i9wQKjg/edit#slide=id.g85a98fc989_0_63
+
+Fialho, F. (n.d.). Animate “height” with CSS Transitions. Retrieved June 29, 2020, from https://codepen.io/felipefialho/pen/ICkwe?editors=1100
+
 freeCodeCamp.org. (2018, October 25). Let’s Build a Tinder-Like Swipe Carousel [Video file]. In YouTube. Retrieved from https://www.youtube.com/watch?v=Iz6W4HizXq8
 
-de Vries, D. (n.d.). lecture-4. Retrieved June 2, 2020, from https://docs.google.com/presentation/d/1J0SVcx7rMnFp37JqsQMHQq92EfBRUFdgSAj5i9wQKjg/edit#slide=id.g85a98fc989_0_63
+Code that the teacher Janno Kapritsias helped with:
+```
+		inputField.addEventListener('keydown', function (event) {
+			characters.push(event.key);
+			// hier zie je dus de letter die de gebruiker intikt..
+		});
+```
 
 Linear Gradient CSS. (n.d.). Retrieved May 10, 2020, from https://cssgradient.io/
 
@@ -100,6 +110,12 @@ db.products.update(
 npmjs. (2019, April 26). npm: body-parser. Retrieved June 2, 2020, from https://www.npmjs.com/package/body-parser
 
 npmjs. (2020, March 15). npm: cookie-parser. Retrieved June 21, 2020, from https://www.npmjs.com/package/cookie-parser
+
+Code that the student Sam de Kanter helped with:
+```
+const allCharacteristics = allItems.dataset.characteristics;
+allItems.classList.add('invisible');
+```
 
 Sarzyński, Ł. (n.d.). fill HTML forms without JavaScript. Retrieved May 26, 2020, from https://dev.to/lukaszsarzynski/fill-html-forms-without-javascript-4d24
 
@@ -151,6 +167,8 @@ mongodb.MongoClient.connect(uri, {
     console.log('Connected to database')
   });
 ```
+
+w3schools. (n.d.-a). How To Create a Filter/Search List. Retrieved June 29, 2020, from https://www.w3schools.com/howto/howto_js_filter_lists.asp
 
 _There are more sources inside my wiki documents themselves, these sources are only based on the code of the project._
 

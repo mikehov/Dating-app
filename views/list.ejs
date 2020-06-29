@@ -9,7 +9,7 @@
     <meta name="keywords" content="Dating-app">
     <meta name="description" content="Dating-app for idk">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./img/favi.png"/>
+    <link rel="icon" type="image/png" href="./img/favi.png" />
     <link
         href="https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat+Alternates:ital,wght@0,500;1,500&family=Nunito+Sans:ital@0;1&display=swap"
         rel="stylesheet">
@@ -18,22 +18,34 @@
 <body>
     <h1 class="users-header">Dating-app Users:</h1>
     <a href="/add" class="list-btn link-white">Add user</a>
-    <a href="/index" class="list-btn link-white">Swipe some people</a>
+    <a href="/index" class="list-btn link-white">Back to home</a>
+    <form action="/list" method="GET">
+        <fieldset class="search-char">
+            <label for="">Search characteristics:</label>
+            <input type="text" name="searchbar" placeholder="smart, friendly, funny..." id="searcbar">
+        </fieldset>
+    </form>
 
     <section class="users-list">
-        <% for (let index = 0; index < data.length; index++) {%>
-        <p>Id: <%= data[index]._id%></p>
-        <p>Firstname: <%= data[index].firstname %></p>
-        <p>Lastname: <%= data[index].lastname %></p>
-        <p>Username: <%= data[index].email %></p>
-        <p>Gender: <%= data[index].gender %></p>
-        <p>Looking for: <%= data[index].lookingfor %></p>
-        <p>Age: <%= data[index].age %></p>
-        <p>City: <%= data[index].city %></p>
-        <p>Characteristics: <%= data[index].characteristics %></p>
-        <br>
-        <% } %>
+        <ul>
+            <% for (let index = 0; index < data.length; index++) {%>
+            <li class="listsearch" data-characteristics="<%= data[index].characteristics %>">
+                <img src="./img/<%= data[index].picture %>" alt="Picture user" width="200px" height="200px" ismap>
+                <!-- <p>Id: <%= data[index]._id%></p> -->
+                <p>Firstname: <%= data[index].firstname %></p>
+                <p>Lastname: <%= data[index].lastname %></p>
+                <!-- <p>Username: <%= data[index].email %></p> -->
+                <!-- <p>Gender: <%= data[index].gender %></p> -->
+                <!-- <p>Looking for: <%= data[index].lookingfor %></p> -->
+                <p>Age: <%= data[index].age %></p>
+                <p>City: <%= data[index].city %></p>
+                <p class="characteristics">Characteristics: <%= data[index].characteristics %></p>
+            </li>
+            <% } %>
+        </ul>
     </section>
+
+    <script src="js/script.js"></script>
 </body>
 <footer>
     <!-- made by: Mike Hovenier -->
