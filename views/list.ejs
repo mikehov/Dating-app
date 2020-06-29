@@ -26,11 +26,13 @@
         </fieldset>
     </form>
 
+    <!-- <img srcset="elva-fairy-480w.jpg 480w, elva-fairy-800w.jpg 800w" sizes="(max-width: 600px) 480px, 800px" src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy"> -->
+
     <section class="users-list">
         <ul>
             <% for (let index = 0; index < data.length; index++) {%>
             <li class="listsearch" data-characteristics="<%= data[index].characteristics %>">
-                <img src="./img/<%= data[index].picture %>" alt="Picture user" width="200px" height="200px" ismap>
+                <img srcset="" src="./img/<%= data[index].picture %>" alt="Picture user">
                 <!-- <p>Id: <%= data[index]._id%></p> -->
                 <p>Firstname: <%= data[index].firstname %></p>
                 <p>Lastname: <%= data[index].lastname %></p>
