@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/mikehov/Dating-app-v2#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.2",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-session": "^1.17.1",
     "mongodb": "^3.5.8",
     "nodemon": "^2.0.3",
